@@ -2,7 +2,7 @@
 
 This directory contains experimental code and results for investigating circuit specialization in large language models (LLMs) for recall versus reasoning tasks. The research tests the hypothesis that LLMs develop distinct internal circuits for memory retrieval (recall) vs logical inference (reasoning) tasks.
 
-## 📋 Research Overview
+## Research Overview
 
 **Primary Hypothesis**: Large language models develop distinct internal circuits for recall (memory retrieval) vs reasoning (logical inference) tasks, with measurable differences in attention patterns, MLP activations, and information flow.
 
@@ -14,7 +14,7 @@ This directory contains experimental code and results for investigating circuit 
 - **H4**: Circuit specialization is consistent across different model architectures *(Future work)*
 - **H5**: Interventions on identified circuits selectively impair corresponding capabilities *(Future work)*
 
-## 📁 Files Structure
+## Files Structure
 
 ### Notebooks
 
@@ -31,7 +31,7 @@ This directory contains experimental code and results for investigating circuit 
 
 3. **`README.md`** - This documentation file
 
-## 🔬 Experimental Design
+## Experimental Design
 
 ### Task Creation
 - **Controlled Pairs**: 30 matched recall-reasoning task pairs
@@ -49,7 +49,7 @@ This directory contains experimental code and results for investigating circuit 
 - **Multiple Testing**: Benjamini-Hochberg correction
 - **Cross-Validation**: 5-fold validation for robustness
 
-## 📊 Key Results
+## Key Results
 
 ### H1: Layer Specialization ✅ **SUPPORTED**
 - **18/28 layers (64%)** show significant specialization
@@ -75,50 +75,7 @@ This directory contains experimental code and results for investigating circuit 
 - **Most specialized layer**: Layer 4 (11,857 neurons, 62.59%)
 - **Statistical significance**: p < 0.001, Cohen's d > 0.5
 
-## 🚀 Usage Instructions
 
-### Prerequisites
-```bash
-pip install torch transformers nnsight matplotlib seaborn scipy scikit-learn statsmodels pandas tqdm numpy
-```
-
-### Running the Experiments
-
-#### H1 & H2: Layer and Attention Analysis
-```python
-# Open layers_and_attention_specialization.ipynb
-# Run all cells sequentially
-# Results will be saved as PNG plots and in results dictionary
-```
-
-#### H3: MLP Neuron Analysis
-```python
-# Open MLP_activations_revised_v1.ipynb
-# Ensure GPU access for optimal performance
-# Run all cells - processing takes ~6 minutes on A100
-```
-
-### Key Functions
-
-- `setup_model()` - Initialize model with attention output configuration
-- `create_controlled_task_pairs()` - Generate matched recall/reasoning tasks
-- `collect_model_data()` - Extract activations, attention weights, MLP outputs
-- `test_layer_specialization_hypothesis()` - Statistical testing for H1
-- `analyze_attention_head_specialization()` - Head-level analysis for H2
-- `identify_task_specific_neurons_optimized()` - GPU-optimized neuron analysis for H3
-
-## 📈 Visualization Outputs
-
-### Generated Plots
-- `h1_effect_sizes_heatmap.png` - Layer specialization heatmap
-- `h1_specialized_layers.png` - Layer specialization summary
-- `h2_attention_heads_heatmap.png` - Attention head specialization
-- `h3_neuron_consistency.png` - MLP neuron task-specificity
-
-### Statistical Tables
-- Cross-validation consistency metrics
-- Effect size distributions
-- P-value corrections and significance tests
 
 ## 🔍 Novel Findings
 
@@ -134,7 +91,7 @@ The results suggest a hierarchical circuit organization:
 2. **Memory Retrieval** (Layers 3-19): Fact extraction and recall
 3. **Integration** (Layers 20-27): Reasoning synthesis and output
 
-## 🔬 Technical Details
+##  Technical Details
 
 ### Computational Requirements
 - **GPU**: Recommended A100 or equivalent for H3 analysis
@@ -146,14 +103,14 @@ The results suggest a hierarchical circuit organization:
 - **Feature Engineering**: Norms, means, entropy, concentration, sparsity
 - **Statistical Testing**: Mann-Whitney U, t-tests, effect sizes
 
-## 📚 Related Work
+##  Related Work
 
 This research builds upon:
 - Mechanistic interpretability frameworks (Anthropic, Redwood Research)
 - Circuit analysis methodologies (Olah et al.)
 - Task-specific neural specialization studies
 
-## 🎯 Future Directions
+##  Future Directions
 
 ### H4: Cross-Architecture Validation
 - Test specialization patterns across different model families
@@ -168,18 +125,6 @@ This research builds upon:
 - Temporal dynamics of circuit activation
 - Fine-tuning effects on specialization patterns
 
-## 📄 Citation
-
-If you use this code or findings in your research, please cite:
-
-```bibtex
-@article{circuit_specialization_2024,
-  title={Circuit Specialization in Large Language Models: Evidence for Distinct Recall and Reasoning Pathways},
-  author={[Your Name]},
-  journal={[Venue]},
-  year={2024}
-}
-```
 
 ## 🤝 Contributing
 
@@ -194,5 +139,3 @@ Contributions welcome! Please:
 For questions or collaboration opportunities, please reach out via the main repository issues or discussions.
 
 ---
-
-**Status**: ✅ All three sub-hypotheses (H1, H2, H3) successfully validated with strong statistical evidence. Ready for paper submission and follow-up experiments.
